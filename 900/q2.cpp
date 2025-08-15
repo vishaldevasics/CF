@@ -101,24 +101,23 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 
 void solve(){
-  int v, h, xk, xq, yk, yq;
-  cin>>v>>h>>xk>>yk>>xq>>yq;
-  vector<vector<int>> dir = {{h,v},{h,-v},{-h,v},{-h,-v},{v,h},{v,-h},{-v,h},{-v,-h}};
-  int ans = 0;
-  set<pair<int,int>> st;
-  for(int i = 0;i<dir.size();i++){
-    int txk = xk + dir[i][0];
-    int tyk = yk + dir[i][1];
-    for(int j = 0;j<dir.size();j++){
-      int txq = xq + dir[j][0];
-      int tyq = yq + dir[j][1];
-      if(txq == txk && tyk == tyq){
-        st.insert({txq,tyq});
-      }
-    }
+  int n , k;
+  cin>>n>>k;
+  string s;
+  cin>>s;
+
+  map<int,int> mpp;
+  for(int i = 0;i<n;i++){
+    mpp[s[i]]++;
   }
-  cout<<st.size()<<endl;
-    
+  int od = 0;
+  for(auto it : mpp){
+    if(it.second%2) od++;
+  }  
+  if(od-k>1){
+    cout<<"NO"<<endl;
+  }
+  else cout<<"YES"<<endl;
 }
 
 int32_t main()
