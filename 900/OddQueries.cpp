@@ -101,24 +101,27 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 
 void solve(){
-    int n=1;
-    cin>>n;
-    vi v(n);
-    cin>>v;
-    if(n%2){
-        cout<<4<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<1<<" "<<2<<endl;
-        cout<<1<<" "<<2<<endl;
-        
-    }
-    else{
-        cout<<2<<endl;
-        cout<<1<<" "<<n<<endl;
-        cout<<1<<" "<<n<<endl;
-    }
+  int n , q;
+  cin>>n>>q;
+  vector<int> v(n);
+  cin>>v;
+  vector<int> pre(n);
+  pre[0] = v[0];
+  for(int i = 1;i<n;i++){
+    pre[i] = v[i] + pre[i-1];
+  }
+  // cout<<pre<<endl;
+  for(int i = 0;i<q;i++){
+    int k , u, w;
+    cin>>u>>w>>k;
+    int mid = u>1 ? (pre[w-1]- pre[u-2]) : pre[w-1];
+    int sum = pre[n-1] + k*(w-u+1) - mid;
+    if(sum%2) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+  }
 }
+
+
 
 int32_t main()
 {

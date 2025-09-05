@@ -102,22 +102,11 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 void solve(){
     int n=1;
+    string s;
     cin>>n;
     vi v(n);
     cin>>v;
-    if(n%2){
-        cout<<4<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<1<<" "<<2<<endl;
-        cout<<1<<" "<<2<<endl;
-        
-    }
-    else{
-        cout<<2<<endl;
-        cout<<1<<" "<<n<<endl;
-        cout<<1<<" "<<n<<endl;
-    }
+    
 }
 
 int32_t main()

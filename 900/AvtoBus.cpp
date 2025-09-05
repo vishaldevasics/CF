@@ -101,23 +101,21 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 
 void solve(){
-    int n=1;
+    long long n=1;
     cin>>n;
-    vi v(n);
-    cin>>v;
-    if(n%2){
-        cout<<4<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<1<<" "<<2<<endl;
-        cout<<1<<" "<<2<<endl;
-        
+
+    if(n%2 || n<4){
+      cout<<-1<<endl;
+      return;
     }
-    else{
-        cout<<2<<endl;
-        cout<<1<<" "<<n<<endl;
-        cout<<1<<" "<<n<<endl;
+    long long mn = 0,mx = 0;
+    if(n%6){
+      mn = n/6 + 1;
     }
+    else mn = n/6;
+    mx = n/4;
+    cout<<mn<<" "<<mx<<endl;
+    
 }
 
 int32_t main()

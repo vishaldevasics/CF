@@ -101,23 +101,24 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 
 void solve(){
-    int n=1;
-    cin>>n;
+    int n=1,k;
+    string s;
+    cin>>n>>k;
     vi v(n);
     cin>>v;
-    if(n%2){
-        cout<<4<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<1<<" "<<2<<endl;
-        cout<<1<<" "<<2<<endl;
-        
+    sort(v.begin(),v.end());
+    int ans = 1;
+    int c = 1;
+    for(int i = 1;i<n ; i++){
+      if(v[i]-v[i-1] <= k){
+        c++;
+      }
+      else{
+        c = 1;
+      }
+      ans = max(ans,c);
     }
-    else{
-        cout<<2<<endl;
-        cout<<1<<" "<<n<<endl;
-        cout<<1<<" "<<n<<endl;
-    }
+    cout<<n-ans<<endl;
 }
 
 int32_t main()

@@ -102,22 +102,17 @@ uint nCr(int n, int r, int p=MOD)     // faster calculation..
 
 void solve(){
     int n=1;
+    string s;
     cin>>n;
     vi v(n);
     cin>>v;
-    if(n%2){
-        cout<<4<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<2<<" "<<n<<endl;
-        cout<<1<<" "<<2<<endl;
-        cout<<1<<" "<<2<<endl;
-        
+    int ans = -1;
+    for(int i = 0;i<n;i++){
+        int dif = abs(v[i] - i - 1);
+        if(ans == -1) ans = dif;
+        if(dif>0) ans = __gcd(ans,dif);
     }
-    else{
-        cout<<2<<endl;
-        cout<<1<<" "<<n<<endl;
-        cout<<1<<" "<<n<<endl;
-    }
+    cout<<ans<<endl;
 }
 
 int32_t main()
